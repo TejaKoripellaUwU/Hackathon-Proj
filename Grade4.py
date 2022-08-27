@@ -3,10 +3,11 @@ import random
 from fractions import Fraction
 import numpy
 import math
-
+#I NEVER WANT TO LOOK AT A FRACTION EVER AGAIN
 people=["James", "Sally", "Bob", "Sam", "Rachel", "Michael", "Laura", "Alex"]
 objects=["marbles", "pens", "books", "water bottles", "pieces of trash", "pencils", "dollars", "papers"]
 fractionObjects=["of a pizza", "of a pie", "of a cake", "liters of juice", "of a lasagna", "of a tree", "of a piece of wood"]
+actions=["slept", "swam", "hiked", "played video games", "read", "watched TV", "baked cookies", "sold potatoes"]
 
 def identifyingPlaceValue(probs):
     problems=[]
@@ -261,10 +262,11 @@ def multiplyFrac(amt):
         solutions.append(solution)
     return problems,solutions
 
+#DONE
 def decToFrac(amt):
     problems=[] 
     solutions=[]
-    used = []
+    used=[]
     for i in range(1 ,amt + 1):
         toFrac = random.choice([True,False])
         frac1Num = random.randint(2,20)
@@ -272,91 +274,92 @@ def decToFrac(amt):
         frac1 = Fraction(frac1Num,frac1Den)
         dec1 = frac1Num/frac1Den
         n = len(str(dec1).split(".")[1])
-        while (n>2 ):
+        while (n>2 or [frac1,dec1] in used):
             frac1Num = random.randint(2,10)
             frac1Den = random.randint(2,10)
             dec1 = frac1Num/frac1Den
             n = len(str(dec1).split(".")[1])
-        while [frac1,dec1] in used:
-            frac1Num = random.randint(2,10)
-            frac1Den = random.randint(2,10)
-            dec1 = frac1Num/frac1Den
-            n = len(str(dec1).split(".")[1])
+        used.append([frac1, dec1])
         if toFrac:
-            problems.append(str(i)+") convert this decimal, "+str(dec1)+" to a fraction")
-            solutions.append(str(i)+") "+str(frac1))
+            problem=str('{0}). Convert the decimal {1} to a fraction'.format(i, dec1))
+            solution=str('{0}). {1}'.format(i, frac1))
         else:
-            problems.append(str(i)+") convert this fraction, "+str(frac1)+" to a decimal")
-            solutions.append(str(i)+") "+str(dec1))
+            problem = str('{0}). Convert the fraction {1} to a decimal'.format(i, frac1))
+            solution = str('{0}). {1}'.format(i, dec1))
+        problems.append(problem)
+        solutions.append(solution)
     return problems,solutions
 
-def Area(probs):
+#WHAT IS THIS
+def Area(amt):
     problems=[]
     solutions=[]
-    for prob in range(1 ,probs + 1):
+    for i in range(1 ,amt + 1):
         problemType = random.choice(["volume", "area", "perimeter"])
         if problemType == "volume":
             shapeType = random.choice(["cube, rectangularPrism"])
             if shapeType == "cube":
                 sideLength1 = random.randint(1,10)
-                problems.append(str(prob+1)+") what is the volume of a cube with sidelength "+str(sideLength1))
-                solutions.append(str(prob+1)+") "+str(sideLength1**3))
+                problem=str('{0}). What is the volume of a cube with a side length of {1}?'.format(i, sideLength1))
+                solution=str('{0}). {1}'.format(i, sideLength1**3))
             if shapeType == "rectangularPrism":
                 sideLength1 = random.randint(1,10)
                 sideLength2 = random.randint(1,10)
                 sideLength3 = random.randint(1,10)
-                problems.append(str(prob+1)+") what is the volume of a rectangular prism with sidelengths "+str(sideLength1)+", "+str(sideLength2)+", "+str(sideLength3)+"?")
-                solutions.append(str(prob+1)+") "+str(sideLength1*sideLength2*sideLength3))
+                problem=str('{0}). What is the volume of a rectangular prism with side lengths of {1}, {2}, and {3}?'.format(i, sideLength1, sideLength2, sideLength3))
+                solution=str('{0}). {1}'.format(i, sideLength1*sideLength2*sideLength3))
         elif problemType == "area":
             shapeType = random.choice(["square, rectangle, triange"])
             if shapeType == "square":
                 sideLength1 = random.randint(1,10)
-                problems.append(str(prob+1)+") what is the area of a square with sidelength "+str(sideLength1))
-                solutions.append(str(prob+1)+") "+str(sideLength1**2))
+                problem=str('{0}). What is the area of a square with a side length of {1}?'.format(i, sideLength1))
+                solution=str('{0}). {1}'.format(i, sideLength1**2))
             elif shapeType =="rectangle":
                 sideLength1 = random.randint(1,10)
                 sideLength2 = random.randint(1,10)
                 while sideLength2 == sideLength1:
                     sideLength2 = random.randint(1,10)
-                problems.append(str(prob+1)+") what is the area of a rectangle with sidelengths "+str(sideLength1)+"and "+str(sideLength2)+"?")
-                solutions.append(str(prob+1)+") "+str(sideLength1*sideLength2))
+                problem=str('{0}). What is the area of a rectangle with side lengths of {1} and {2}?'.format(i, sideLength1, sideLength2))
+                solution=str('{0}). {1}'.format(i, sideLength1*sideLength2))
             else:
                 base = random.randint(1,10)
                 height = random.randint(1,10)
-                problems.append(str(prob+1)+") what is the area of a triange with a base of length "+str(base)+" and a height of "+str(height)+"?")
-                solutions.append(str(prob+1)+") "+str(base*height/2))
+                problem=str('{0}). What is the area of a triangle with a base of {1} and a height of {2}?'.format(i, base, height))
+                solution=str('{0}). {1}'.format(i, base*height/2))
         elif problemType == "perimeter":
             shapeType = random.choice(["square, rectangle, triange"])
             if shapeType == "square":
                 sideLength1 = random.randint(1,10)
-                problems.append(str(prob+1)+") what is the perimeter of a square with sidelength "+str(sideLength1))
-                solutions.append(str(prob+1)+") "+str(sideLength1*4))
+                problem=str('{0}). What is the perimeter of a square with sidelength of {1}?'.format(i, sideLength1))
+                solution=str('{0}). {1}'.format(i, sideLength1*4))
             elif shapeType =="rectangle":
                 sideLength1 = random.randint(1,10)
                 sideLength2 = random.randint(1,10)
                 while sideLength2 == sideLength1:
                     sideLength2 = random.randint(1,10)
-                problems.append(str(prob+1)+") what is the perimeter of a rectangle with sidelengths of "+str(sideLength1)+" and "+str(sideLength2)+"?")
-                solutions.append(str(prob+1)+") "+str(sideLength1*2+sideLength2*2))
+                problem=str('{0}). What is the perimeter of a rectangle with side lengths of {1} and {2}?'.format(i, sideLength1, sideLength2))
+                solution=str('{0}). {1}'.format(i, sideLength1*2 + sideLength2 * 2))
             else:
                 sideLength1 = random.randint(1,10)
                 sideLength2 = random.randint(1,10)
                 sideLength3 = random.randint(1,10)
-                problems.append(str(prob+1)+") what is the perimeter of a triangle with sidelengths "+str(sideLength1)+", "+str(sideLength2)+", "+str(sideLength3)+"?")
-                solutions.append(str(prob+1)+") "+str(sideLength1+sideLength2+sideLength3))
+                problem=str('{0}). What is the perimeter of a triangle with side lengths of {1}, {2}, and {3}?'.format(i, sideLength1, sideLength2, sideLength3))
+                solution=str('{0}). {1}'.format(i, sideLength1+sideLength2+sideLength3))
+        problems.append(problem)
+        solutions.append(solution)
     return problems,solutions
 
-def Time(probs):
+def Time(amt):
     problems=[]
     solutions=[]
     used = []
-    for problem in range(1 ,probs + 1):
+    for i in range(1 , amt + 1):
         num1=random.randint(1,15)
         prob=random.choice(['minutes', 'days', 'hours'])
-        if [num1,problem] in used:
+        if [num1, prob] in used:
             num1=random.randint(1,15)
             prob=random.choice(['minutes', 'days', 'hours'])
-        used.append([num1,problem])
+        used.append([num1, prob])
         if prob=='minutes':
             num=num1*60
             unit='seconds'
@@ -366,12 +369,20 @@ def Time(probs):
         if prob=='hours':
             num=num1*60
             unit='minutes'
-        problems.append(str(problem) + ') How many ' + unit + ' is ' + str(num1) + ' ' + prob + '? ' )
-        solutions.append(str(problem) + ') ' + str(num) + ' ' + unit )
+        if (i<26):
+            problem=str('{0}). How many {1} is {2} {3}?'.format(i, unit, num1, prob))
+            solution=str('{0}). {1} {2}'.format(i, num, unit))
+        else:
+            person=random.choice(people)
+            action=random.choice(actions)
+            problem=str('{0}). {1} {2} for {3} {4}. How many {5} did they {2}?'.format(i, person, action, num1, prob, unit))
+            solution=str('{0}). {1} {2} for {3} {4}.'.format(i, person, action, num, unit))
+        problems.append(problem)
+        solutions.append(solution)
     return problems,solutions
 
 def main():
-    problems, solutions = decToFrac(30)
+    problems, solutions = Time(30)
     for i in problems:
         print(i)
     for i in solutions:
