@@ -1,7 +1,6 @@
 import random
 from fractions import Fraction
-import numpy
-import math
+
 
 def identifyingPlaceValue(probs):
     problems=[]

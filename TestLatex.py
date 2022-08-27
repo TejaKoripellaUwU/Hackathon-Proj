@@ -21,14 +21,12 @@ if __name__ == '__main__':
 
     # Document with `\maketitle` command activated
     doc = Document()
-
     doc.preamble.append(Command('title', 'Awesome Title'))
     doc.preamble.append(Command('author', 'Anonymous author'))
     doc.preamble.append(Command('date', NoEscape(r'\today')))
     doc.append(NoEscape(r'\maketitle'))
-
     fill_document(doc)
 
-    doc.generate_pdf('latex3', clean_tex=False)
+    doc.generate_pdf('L', clean_tex=False)
 
     tex = doc.dumps()

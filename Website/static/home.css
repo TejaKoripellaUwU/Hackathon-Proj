@@ -1,0 +1,184 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.paralaxEffect{
+    background-image: url("https://images.unsplash.com/photo-1453747063559-36695c8771bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjF9&auto=format&fit=crop&w=1050&q=80");
+    min-height: 900px;
+    min-width: 100%;
+    background-attachment: fixed;
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.6;
+    z-index: -1;
+}
+.second{
+    margin-top: 900px;
+    background-image: url(ShartWeek.jpg);
+    min-height: 500px;
+    min-width: 100%;
+    background-attachment: fixed;
+    position:absolute;
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.6;
+    z-index: -1;
+}
+.third{
+    margin-top: 1400px;
+    background-image: url(sunset.jpg);
+    min-height: 600px;
+    min-width: 100%;
+    background-attachment: fixed;
+    position:absolute;
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.6;
+    z-index: -1;
+}
+#mainTitle{
+    font-size: 15rem;
+    height: 5rem;
+    width: 50rem;
+    color: #463730;
+    opacity: 1;
+    margin-bottom: 10rem;
+    display: block;
+}
+.subtitle{
+    font-size: 5rem;
+    height: 5rem;
+    width: 50rem;
+    color: #1F5673;
+    display: block;
+}
+.mainContainer{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    min-height: fit-content;
+    min-width: 100%;
+    flex-wrap: wrap;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+}
+
+body{
+    min-height: 100vh;
+
+}
+.cool-btn{
+    width: 20rem;
+    height: 8rem;
+    background-color:#7678ED;
+    box-shadow: 0px 0px 100px #3D348B;
+    border: none;
+    border-radius: 45%;
+    position:relative;
+    transition: all 0.2s ease-in;
+    font-size: 2rem;
+    opacity: 0.8;
+}
+.cool-btn:hover{
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 100px #F18701;
+    background-color:#F7B801;
+    border-radius: 45%;
+    opacity: 0.9;
+}
+nav{
+    position: top;
+    font-size: 30px;
+    background-color: rgba(118, 120, 237, 0.8);
+}
+#navbarNav{
+    display: show;
+}
+a:link { text-decoration: none; }
+
+
+a:visited { text-decoration: none; }
+
+
+a:hover { text-decoration: none; }
+
+
+a:active { text-decoration: none; }
+
