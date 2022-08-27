@@ -9,12 +9,6 @@ objects=["marbles", "pens", "books", "water bottles", "pieces of trash", "pencil
 fractionObjects=["of a pizza", "of a pie", "of a cake", "liters of juice", "of a lasagna", "of a tree", "of a piece of wood"]
 actions=["slept", "swam", "hiked", "played video games", "read", "watched TV", "baked cookies", "sold potatoes"]
 
-def identifyingPlaceValue(probs):
-    problems=[]
-    solutions=[]
-    
-    return problems,solutions
-
 # DONE + DONE
 def roundingNums(amt):
     problems=[]
