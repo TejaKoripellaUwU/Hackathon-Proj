@@ -18,6 +18,11 @@ def fill_document(doc):
 
 if __name__ == '__main__':
     # Basic document
+    doc = Document('basic')
+    fill_document(doc)
+
+    doc.generate_pdf(clean_tex=False)
+    doc.generate_tex()
 
     # Document with `\maketitle` command activated
     doc = Document()
@@ -29,6 +34,11 @@ if __name__ == '__main__':
 
     fill_document(doc)
 
-    doc.generate_pdf('latex3', clean_tex=False)
+    doc.generate_pdf('basic_maketitle', clean_tex=False)
 
-    tex = doc.dumps()
+    # Add stuff to the document
+    with doc.create(Section('A second section')):
+        doc.append('Some text.')
+
+    doc.generate_pdf('basic_maketitle2', clean_tex=False)
+    tex = doc.dumps()  # The document as string in LaTeX syntax

@@ -1,7 +1,7 @@
 import random
 
 people=["James", "Sally", "Bob", "Sam", "Rachel", "Michael", "Laura", "Alex"]
-objects=["marbles", "pens", "books", "water bottles", "pieces of trash", "pencils", "dollars", "papers"]
+objects=["marbles", "penis", "books", "water bottles", "pieces of trash", "pencils", "dollars", "papers"]
 
 def comparingTwoDigitNums(num):
     problems=[]
