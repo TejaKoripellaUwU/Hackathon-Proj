@@ -26,15 +26,17 @@ if __name__ == '__main__':
 
     # Document with `\maketitle` command activated
     doc = Document()
-
     doc.preamble.append(Command('title', 'Awesome Title'))
     doc.preamble.append(Command('author', 'Anonymous author'))
     doc.preamble.append(Command('date', NoEscape(r'\today')))
     doc.append(NoEscape(r'\maketitle'))
-
     fill_document(doc)
 
+<<<<<<< HEAD:TestLatex.py
+    doc.generate_pdf('L', clean_tex=False)
+=======
     doc.generate_pdf('basic_maketitle', clean_tex=False)
+>>>>>>> aa6da81640aea22f99214e6ecd27cdcd02320eb6:What.py
 
     # Add stuff to the document
     with doc.create(Section('A second section')):
