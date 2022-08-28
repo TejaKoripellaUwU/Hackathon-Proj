@@ -1,0 +1,85 @@
+.mainTitle{
+    font-size: 3rem;
+    height: 5rem;
+    width: 50rem;
+    color: #463730;
+    opacity: 1;
+    display: block;
+}
+.fatFlex{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 3rem;
+}
+#topFlex{
+    margin-top: 50px;
+}
+.centered{
+    display: flex;
+    justify-content: center;
+}
+nav{
+    position: top;
+    font-size: 30px;
+    background-color: rgba(118, 120, 237, 0.8);
+}
+#navbarNav{
+    display: show;
+}
+#TopicSpot{
+    background-color: #759FBC;
+    width:20rem;
+    height:30rem;
+}
+.strangeBtn{
+    height: 3rem;
+
+}
+.f{
+    transform: translateY(-400px);
+}
+.cool-dropDown{
+    position: relative;
+    border: 0.3rem solid #3D348B;
+    background-color:#7678ED;
+    box-shadow: 0px 0px 100px #3D348B;
+    border-radius: 30%;
+    width: 15rem;
+    height: 3rem;
+    position:relative;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    opacity: 1;
+    color:#3D348B;
+}
+
+.dropDown-element{
+    border: 0.1rem solid #3D348B;
+    border-radius: 30%;
+    background-color: #f18701;
+    transition: background-color 0.2s ease-in;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    opacity: 1;
+    color:#3D348B;
+    margin-right: 3rem;
+}
+.cool-dropDown{
+    position: relative;
+    border: 0.3rem solid #3D348B;
+    background-color:#7678ED;
+    box-shadow: 0px 0px 100px #3D348B;
+    border-radius: 30%;
+    width: 15rem;
+    height: 3rem;
+    position:relative;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    opacity: 1;
+    color:#3D348B;
+}
+.dropDown-element:hover{
+    background-color: #0c0c0c;
+    font-size: 20rem;
+}

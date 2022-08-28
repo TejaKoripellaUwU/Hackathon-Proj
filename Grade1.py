@@ -1,7 +1,11 @@
 import random
 
 people=["James", "Sally", "Bob", "Sam", "Rachel", "Michael", "Laura", "Alex"]
-objects=["marbles", "pens", "books", "water bottles", "pieces of trash", "pencils", "dollars", "papers"]
+objects=["marbles", "pens", "books", "bottles", "toys", "pencils", "dollars", "papers"]
+functions=[['Comparing Two Digit Numbers', 'comparingTwoDigitNums'], ['Adding Numbers Within 20', 'addingNumsWithin20'],
+           ['Subtracting Numbers Within 20', 'subtractingNumsWithin20'], ['Finding the Missing Number', 'missingNumber'],
+           ['Adding Three Numbers', 'addingThreeNumbers'], ['Before and After', 'beforeAfter'],
+           ['Basic Place Value', 'basicPlaceValue'], ['Breaking Apart Numbers', 'breakingApartNums']]
 
 def comparingTwoDigitNums(num):
     problems=[]
@@ -41,45 +45,6 @@ def comparingTwoDigitNums(num):
         problems.append(problem)
         solutions.append(solution)
 
-    return problems, solutions
-
-def addingNumsWithin20(num):
-    problems = []
-    solutions = []
-    used = []
-
-    for i in range(1, num+1):
-        num1=random.randint(1, 70)
-        op=random.choice(['+', '-'])
-        if (op=='+'):
-            num2=num1+random.randint(1, 20)
-        else:
-            num2=num1=random.randint(1, 20)
-
-        while ([num1, num2] in used):
-            num1 = random.randint(1, 70)
-            op = random.choice(['+', '-'])
-            if (op == '+'):
-                num2 = num1 + random.randint(1, 20)
-            else:
-                num2 = num1 = random.randint(1, 20)
-        used.append([num1, num2])
-        if (i<26):
-            problem=str(i) + ") " + str(num1) + " + " + str(num2) + " = "
-            solution=str(i) + ") " + str(num1) + " + " + str(num2) + " = " + str(num1 + num2)
-        else:
-            person1 = random.choice(people)
-            person2 = random.choice(people)
-            while (person1 == person2):
-                person1 = random.choice(people)
-                person2 = random.choice(people)
-            object=random.choice(objects)
-            problem=str(i) + ") " + person1 + " has " + str(num1) + " " + object + ". " + str(person2) + \
-                    " has " + str(num2) +  " more " + object + " than " + person1 + ". How many " + object \
-                    + " does " + person2 + " have?"
-            solution=str(i) + ") " + person2 + " has " + str(num1 + num2) + " " + object + "."
-        problems.append(problem)
-        solutions.append(solution)
     return problems, solutions
 
 def addingNumsWithin20(num):
@@ -290,18 +255,3 @@ def breakingApartNums(num):
         problems.append(problem)
         solutions.append(solution)
     return problems, solutions
-
-def main():
-    #problems, solutions=comparingTwoDigitNums(30)
-    #problems, solutions=addingNumsWithin20(30)
-    #problems, solutions = subtractingNumsWithin20(30)
-    #problems, solutions=missingNumber(30)
-    #problems, solutions=addingThreeNumbers(30)
-    #problems, solutions=beforeAfter(30)
-    #problems, solutions=basicPlaceValue(30)
-    problems, solutions=breakingApartNums(30)
-    for i in problems:
-        print(i)
-    for i in solutions:
-        print(i)
-main()
