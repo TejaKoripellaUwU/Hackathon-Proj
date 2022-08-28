@@ -1,13 +1,8 @@
-import pylatex.basic
-from pylatex import Document, Section, Subsection, Command
-from pylatex.utils import italic, NoEscape, bold
+from pylatex.utils import italic, bold
 from pylatex import *
 
-import Grade2
-from Grade2 import *
-import random
-from pdflatex import PDFLaTeX
-import pylatex as pl
+from Website import Grade2
+from Website.Grade2 import *
 
 
 def fill_document(doc):
@@ -111,21 +106,14 @@ def title(doc):
 
     return doc
 
-def howToUse(doc):
-
-    with doc.create(Section(bold('How to use this Workbook'))):
-        doc.append("This workbook was created as a learning tool to help students practice math.")
-
-    doc.append(NewPage())
-    return doc
 
 def tableOfContents(doc):
 
     with doc.create(Section('Table of Contents')):
 
-        doc.append("Problems...........................................................................................Page 4")
+        doc.append("Problems...........................................................................................Page 3")
         doc.append(NewLine())
-        page=5
+        page=4
         for i in range (0, len(functions)):
             doc.append(functions[i][0])
             numOfDots=round((58-(len(functions[i][0])))*1.81034483)
@@ -154,14 +142,11 @@ def tableOfContents(doc):
 
 
     return doc
-def genBook():
+def genG2Book():
     doc = Document()
 
     # Make title
     doc=title(doc)
-
-    # Make how to use page
-    doc=howToUse(doc)
 
     doc=tableOfContents(doc)
 
@@ -178,4 +163,4 @@ def genBook():
     except:
         print("error")
 
-genBook()
+genG2Book()

@@ -42,6 +42,8 @@
                 Download a Worsheet
             </h1>
         </div>
+        
+        <form action="{{ url_for('views.sendPDF')}}" method="post">       
         <div class="col-sm-3 centered">
             <button class = "strangeBtn">
                 Download
@@ -56,14 +58,13 @@
         </div>
     </div>
     <div class="row f">
-        <form action="#" method="post">
             <div class="col-sm-5 centered">
                 <select name="GetWorkbook" class="cool-dropDown">
                     <option value="---" class="dropDown-element">Select a Grade</option>
-                    <option value="g1" class="dropDown-element">First Grade</option>
-                    <option value="g2" class="dropDown-element">Second Grade</option>
-                    <option value="g4" class="dropDown-element">Fourth Grade</option>
-                    <option value="a1" class="dropDown-element">Algebra 1</option>
+                    <option value="Grade1Workbook.pdf" class="dropDown-element">First Grade</option>
+                    <option value="Grade2Workbook.pdf" class="dropDown-element">Second Grade</option>
+                    <option value="Grade4Workbook.pdf" class="dropDown-element">Fourth Grade</option>
+                    <option value="Grade1Workbook.pdf" class="dropDown-element">Algebra 1</option>
                 </select>
             </div>
             <div class="col-sm-3 centered">
@@ -71,22 +72,8 @@
                     Customize
                 </button>
             </div>
-        </form>
-        <div class="col-sm-5 centered">
-            <select name="GetWorkbook" class="cool-dropDown">
-                <option value="---" class="dropDown-element">Select a Grade</option>
-                <option value="g1" class="dropDown-element">First Grade</option>
-                <option value="g2" class="dropDown-element">Second Grade</option>
-                <option value="g4" class="dropDown-element">Fourth Grade</option>
-                <option value="a1" class="dropDown-element">Algebra 1</option>
-            </select>
-        </div>
-        <div class="col-sm-3 centered">
-            <button>
-                Customize
-            </button>
-        </div>
     </div>
+</form>
 </div>
 
 
