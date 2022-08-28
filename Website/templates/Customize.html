@@ -28,9 +28,10 @@
     <div id = "containerRemove"></div>
     <h1>Selected Topics</h1>
     <button id = "remove">Remove Topics</button>
-    <button id = "Download">Download</button>
-    <input type="checkbox" name="jez" id="nose">
-    <label for="jez">yee</label>
+    <form action="{{ url_for('views.massiveL')}}" method="POST">
+        <input id = "idk" name = "inp" type="text" value="" hidden>
+        <button id = "Download">Download</button>
+    </form>
     <script src="{{ url_for('static', filename='Customize.js') }}"></script>
 </body>
 </html>

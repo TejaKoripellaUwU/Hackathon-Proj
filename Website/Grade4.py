@@ -6,10 +6,7 @@ people=["James", "Sally", "Bob", "Sam", "Rachel", "Michael", "Laura", "Alex"]
 objects=["marbles", "pens", "books", "water bottles", "pieces of trash", "pencils", "dollars", "papers"]
 fractionObjects=["of a pizza", "of a pie", "of a cake", "liters of juice", "of a lasagna", "of a tree", "of a piece of wood"]
 actions=["slept", "swam", "hiked", "played video games", "read", "watched TV", "baked cookies", "sold potatoes"]
-g4Functions=[['Rounding Numbers', 'roundingNums'], ['Dividing Numbers', 'dividingNums'],
-           ['Prime and Composite Numbers', 'primeComposite'], ['Comparing Fractions', 'compareFractions'],
-           ['Adding and Subtracting Fractions', 'addSubFrac'], ['Multiplying Fractions', 'multiplyFrac'],
-           ['Converting Decimals to Fractions', 'decToFrac'], ['Area', 'Area'], ['Converting Time', 'Time']]
+
 
 
 # DONE + DONE
@@ -377,3 +374,8 @@ def Time(amt):
         problems.append(problem)
         solutions.append(solution)
     return problems,solutions
+
+g4Functions=[['Rounding Numbers', roundingNums(30), 0, 0], ['Dividing Numbers', dividingNums(30), 0, 0],
+           ['Prime and Composite Numbers', primeComposite(30), 0, 0], ['Comparing Fractions', compareFractions(30), 0, 0],
+           ['Adding and Subtracting Fractions', addSubFrac(30), 0, 0], ['Multiplying Fractions', multiplyFrac(30), 0, 0],
+           ['Converting Decimals to Fractions', decToFrac(30), 0, 0], ['Area', Area(30), 0, 0], ['Converting Time', Time(30), 0, 0]]

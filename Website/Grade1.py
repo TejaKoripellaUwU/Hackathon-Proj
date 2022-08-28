@@ -2,10 +2,6 @@ import random
 
 people=["James", "Sally", "Bob", "Sam", "Rachel", "Michael", "Laura", "Alex"]
 objects=["marbles", "pens", "books", "bottles", "toys", "pencils", "dollars", "papers"]
-g1Functions=[['Comparing Two Digit Numbers', 'comparingTwoDigitNums'], ['Adding Numbers Within 20', 'addingNumsWithin20'],
-           ['Subtracting Numbers Within 20', 'subtractingNumsWithin20'], ['Finding the Missing Number', 'missingNumber'],
-           ['Adding Three Numbers', 'addingThreeNumbers'], ['Before and After', 'beforeAfter'],
-           ['Basic Place Value', 'basicPlaceValue'], ['Breaking Apart Numbers', 'breakingApartNums']]
 
 def comparingTwoDigitNums(num):
     problems=[]
@@ -255,3 +251,7 @@ def breakingApartNums(num):
         problems.append(problem)
         solutions.append(solution)
     return problems, solutions
+g1Functions=[['Comparing Two Digit Numbers', comparingTwoDigitNums(30), 0, 0], ['Adding Numbers Within 20', addingNumsWithin20(30), 0, 0],
+           ['Subtracting Numbers Within 20', subtractingNumsWithin20(30), 0, 0], ['Finding the Missing Number', missingNumber(30), 0, 0],
+           ['Adding Three Numbers', addingThreeNumbers(30), 0, 0], ['Before and After', beforeAfter(30), 0, 0],
+           ['Basic Place Value', basicPlaceValue(30), 0, 0], ['Breaking Apart Numbers', breakingApartNums(30), 0, 0]]

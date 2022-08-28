@@ -65,9 +65,10 @@
                     <option value="Grade1Workbook.pdf" class="dropDown-element">First Grade</option>
                     <option value="Grade2Workbook.pdf" class="dropDown-element">Second Grade</option>
                     <option value="Grade4Workbook.pdf" class="dropDown-element">Fourth Grade</option>
-                    <option value="Grade1Workbook.pdf" class="dropDown-element">Algebra 1</option>
+                    <option value="Grade9Workbook.pdf" class="dropDown-element">Algebra 1</option>
                 </select>
             </div>
+        </form>
             <div class="col-sm-3 centered">
                 <button id="customize">
                     <a href="{{ url_for('views.customPDF')}}">customize</a>
@@ -80,7 +81,7 @@
 
     </ul>
 
-</form>
+
 </div>
 
 <script src="{{ url_for('static', filename='Download.js') }}"></script>

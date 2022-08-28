@@ -2,10 +2,7 @@ import random
 
 people=["James", "Sally", "Bob", "Sam", "Rachel", "Michael", "Laura", "Alex"]
 objects=["marbles", "pens", "books", "water bottles", "pieces of trash", "pencils", "dollars", "papers"]
-g2Functions=[['Adding Two Digit Numbers', 'addProbs'], ['Subtracting Two Digit Numbers', 'subProbs'],
-           ['Counting Money', 'moneyProbs'], ['Standard Form', 'standardFormProbs'],
-           ['Expanded Form', 'expandedFormProbs'], ['Comparing Two and Three Digit Numbers', 'comparingTwoAndThreeDigitNumsProbs'],
-           ['Number Sequences', 'nextInSequenceProbs']]
+
 
 
 
@@ -263,3 +260,8 @@ def nextInSequenceProbs(num):
         solutions.append(solution)
 
     return problems, solutions
+
+g2Functions=[['Adding Two Digit Numbers', addProbs(30), 0, 0], ['Subtracting Two Digit Numbers', subProbs(30), 0, 0],
+           ['Counting Money', moneyProbs(30), 0, 0], ['Standard Form', standardFormProbs(30), 0, 0],
+           ['Expanded Form', expandedFormProbs(30), 0, 0], ['Comparing Two and Three Digit Numbers', comparingTwoAndThreeDigitNumsProbs(30), 0, 0],
+           ['Number Sequences', nextInSequenceProbs(30), 0, 0]]

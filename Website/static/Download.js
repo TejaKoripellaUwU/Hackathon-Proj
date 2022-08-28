@@ -15,6 +15,7 @@ let custom = document.querySelector("#customize");
 selected.addEventListener("change",()=>{
     ul.replaceChildren();
     output = selected.value;
+    //console.log(output)
     $.ajax({
         url: "/getTopics/",
         type: 'POST',

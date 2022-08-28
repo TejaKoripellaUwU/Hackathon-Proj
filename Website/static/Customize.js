@@ -4,7 +4,10 @@ let remove = document.querySelector("#containerRemove");
 let removeTopic = document.querySelector("#remove");
 let add = document.querySelector("#containerAdd");
 let addTopic = document.querySelector("#add");
+let finish = document.querySelector("#Download")
+let text = document.querySelector("#idk")
 let finalFunctions = [];
+let finalMeta = [];
 
 tGetter.addEventListener("click",()=>{
     add.replaceChildren();
@@ -20,26 +23,38 @@ tGetter.addEventListener("click",()=>{
             for (item of response){
                 let check = document.createElement('input')
                 check.type = "checkbox"
-                check.name = item[1];
-                check.raw = item[0]
+                check.name = item[0];
                 add.appendChild(check);
                 let label = document.createElement("label")
-                label.for = item[1];
-                add.appendChild(label).innerHTML ='<label>'+item[0]+'</label>'
+                label.setAttribute("for",item[0]);
+                add.appendChild(label).innerHTML = item[0]
                 labels.push(label)
             }
             addTopic.addEventListener("click",()=>{
-                for (child of add.children){
-                    if(child.checked){
-                        finalFunctions.push(child.textContent)
-                        remove.appendChild(child)
-                        let label = document.createElement("label")
-                        label.for = child.name;
-                        remove.appendChild(label).innerHTML ='<label>'+child.raw+'</label>'
-                        
+                for (let i = 0; i<add.childNodes.length;i++){
+                    if(add.childNodes[i].checked){
+                        finalFunctions.push(add.childNodes[i].name)
+                        remove.appendChild(add.childNodes[i])
+                        remove.appendChild(add.childNodes[i])
                     }
                 }
             })
+            removeTopic.addEventListener("click",()=>{
+                for (let i = 0; i<remove.childNodes.length;i++){
+                    if(remove.childNodes[i].checked){
+                        var index = finalFunctions.indexOf(remove.childNodes[i].name);
+                        if (index > -1) {
+                            finalFunctions.splice(index, 1);
+                        }
+                        remove.removeChild(remove.childNodes[i])
+                        remove.removeChild(remove.childNodes[i])
+                    }
+                }
+            })
+            finish.addEventListener('click',()=>{
+                text.setAttribute("value",JSON.stringify(finalFunctions))
+            })
+            
         },
         error: function (response) {
         }

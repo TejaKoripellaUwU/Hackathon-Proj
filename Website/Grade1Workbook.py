@@ -2,9 +2,15 @@ from pylatex.utils import italic, bold
 from pylatex import *
 from Website import Grade1
 from Website.Grade1 import *
+from Website import Grade2
+from Website.Grade2 import *
+from Website import Grade4
+from Website.Grade4 import *
 import Website.Grade1
+import Website.Grade2
+import Website.Grade4
 
-
+allFunc = g1Functions+g2Functions+g4Functions
 def fill_document(doc):
     """Add a section, a subsection and some text to the document.
 
@@ -42,22 +48,23 @@ def solutionSection(doc):
     return doc
 
 
-def genProblems(doc):
+def genProblems(doc,functions):
     s=[]
 
-    for j in range(0, len(g1Functions)):
+    for j in range(0, len(functions)):
         l=[]
         for i in range(1, 5):
             doc.append(NoEscape('\large'))
             doc.append(NoEscape(r'\begin{center}'))
-            title=r'\textbf{' + g1Functions[j][0] + '- Worksheet ' + str(i) + '}'
+            title=r'\textbf{' + functions[j][0] + '- Worksheet ' + str(i) + '}'
             doc.append(NoEscape(title))
+            doc.append(NewLine())
+            doc.append(NewLine())
             doc.append(NewLine())
             doc.append(NoEscape(r'\end{center} \normalsize'))
             #doc.append(NoEscape(r'\normalsize'))
 
-            f = getattr(Grade1, g1Functions[j][1])
-            problems, solutions=f(30)
+            problems, solutions = functions[j][1]
             l2=[]
             for k in range(0, len(problems)):
                 doc.append(problems[k])
@@ -76,13 +83,13 @@ def genProblems(doc):
 
     return doc, s
 
-def genSolutions(doc, s):
+def genSolutions(doc, s,autoFunctions):
     #print(len(s))
     for j in range(0, len(s)):
         for i in range(0, 4):
             doc.append(NoEscape('\large'))
             doc.append(NoEscape(r'\begin{center}'))
-            title=r'\textbf{' + g1Functions[j][0] + '- Solution ' + str(i+1) + '}'
+            title=r'\textbf{' + autoFunctions[j][0] + '- Solution ' + str(i+1) + '}'
             doc.append(NoEscape(title))
             doc.append(NewLine())
             doc.append(NoEscape(r'\end{center} \normalsize'))
@@ -96,9 +103,9 @@ def genSolutions(doc, s):
     return doc
 
 
-def title(doc):
+def title(doc,title):
 
-    doc.preamble.append(Command('title', 'Grade 1 Math Workbook'))
+    doc.preamble.append(Command('title', title))
     doc.preamble.append(Command('author', 'Akshai Srinivasan, Teja Koripella, Skye Tyrrell, Angellou Sutharsan'))
     doc.preamble.append(Command('date', ''))
     doc.append(NoEscape(r'\maketitle'))
@@ -114,59 +121,65 @@ def title(doc):
     return doc
 
 
-def tableOfContents(doc):
+def tableOfContents(doc,allFunctions):
 
     with doc.create(Section('Table of Contents')):
 
-        doc.append("Problems...........................................................................................Page 3")
+        doc.append(
+            "Problems...........................................................................................Page 3")
         doc.append(NewLine())
-        page=4
-        for i in range (0, len(g1Functions)):
-            doc.append(g1Functions[i][0])
-            numOfDots=round((58-(len(g1Functions[i][0])))*1.81034483)
+        page = 4
+        for i in range(0, len(allFunctions)):
+            doc.append(allFunctions[i][0])
+            numOfDots = round((58 - (len(allFunctions[i][0]))) * 1.81034483)
             for j in range(0, numOfDots):
                 doc.append(".")
-            if (i==len(g1Functions)-1):
-                doc.append("Page " + str(page) + "-" + str(page+13))
-                page += 14
+            if (i == len(allFunctions) - 1):
+
+                doc.append("Page " + str(page) + "-" + str(page + ((4 * (3 + allFunctions[i][2])) + 1)))
+
+                page += ((4 * (3 + allFunctions[i][2])) + 1)
             else:
-                doc.append("Page " + str(page) + "-" + str(page + 11))
-                page += 12
+                doc.append("Page " + str(page) + "-" + str(page + ((4 * (3 + allFunctions[i][2])) - 1)))
+                page += ((4 * (3 + allFunctions[i][2])))
             doc.append(NewLine())
-        doc.append("Solutions......................................................................................Page " + str(page) )
+        page += 1
+        doc.append(
+            "Solutions......................................................................................Page " + str(
+                page))
         doc.append(NewLine())
-        page+=1
-        for i in range (0, len(g1Functions)):
-            doc.append(g1Functions[i][0] + " Solutions")
-            numOfDots=round((58-(len(g1Functions[i][0] + " Solutions")))*1.81034483)
+        page += 1
+        for i in range(0, len(allFunctions)):
+            doc.append(allFunctions[i][0] + " Solutions")
+            numOfDots = round((58 - (len(allFunctions[i][0] + " Solutions"))) * 1.81034483)
             for j in range(0, numOfDots):
                 doc.append(".")
-            doc.append("Page " + str(page) + "-" + str(page+3))
-            page+=4
+            doc.append("Page " + str(page) + "-" + str((page + ((4 * (1 + allFunctions[i][2])))) - 1))
+            page += ((4 * (1 + allFunctions[i][2])))
             doc.append(NewLine())
         doc.append(NewPage())
 
     return doc
 
-def genG1Book():
+def genG1Book(functions, theRealTitle, pdf):
     doc = Document()
 
     # Make title
-    doc=title(doc)
+    doc=title(doc,theRealTitle)
 
-    doc=tableOfContents(doc)
+    doc=tableOfContents(doc,functions)
 
     doc=problemSection(doc)
 
-    doc, s=genProblems(doc)
+    doc, s=genProblems(doc,functions)
 
     doc=solutionSection(doc)
-    doc=genSolutions(doc, s)
+    doc=genSolutions(doc, s,functions)
 
     # Generate .tex file
     try:
-        doc.generate_pdf('Grade1Workbook', clean_tex=False)
+        doc.generate_pdf(pdf, clean_tex=False)
     except:
         print("error")
 
-genG1Book()
+#genG1Book()

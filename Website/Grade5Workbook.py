@@ -3,9 +3,8 @@ from pylatex import Document, Section, Subsection, Command
 from pylatex.utils import italic, NoEscape, bold
 from pylatex import *
 
-
-from Website import Grade2
-from Website.Grade2 import*
+import Grade5
+from Grade5 import *
 import random
 from pdflatex import PDFLaTeX
 import pylatex as pl
@@ -51,12 +50,12 @@ def solutionSection(doc):
 def genProblems(doc):
     s=[]
 
-    for j in range(0, len(g2Functions)):
+    for j in range(0, len(functions)):
         l=[]
         for i in range(1, 5):
             doc.append(NoEscape('\large'))
             doc.append(NoEscape(r'\begin{center}'))
-            title=r'\textbf{' + g2Functions[j][0] + '- Worksheet ' + str(i) + '}'
+            title=r'\textbf{' + functions[j][0] + '- Worksheet ' + str(i) + '}'
             doc.append(NoEscape(title))
             doc.append(NewLine())
             doc.append(NewLine())
@@ -64,14 +63,14 @@ def genProblems(doc):
             doc.append(NoEscape(r'\end{center} \normalsize'))
             #doc.append(NoEscape(r'\normalsize'))
 
-            problems, solutions = g2Functions[j][1]
+            #f = getattr(Grade5, functions[j][1])
+            problems, solutions=functions[j][1]
             l2=[]
             for k in range(0, len(problems)):
-                doc.append(problems[k])
+                doc.append(NoEscape(problems[k]))
                 doc.append(NewLine())
                 doc.append(NewLine())
                 doc.append(NewLine())
-
                 l2.append(solutions[k])
 
             l.append(l2)
@@ -89,14 +88,14 @@ def genSolutions(doc, s):
         for i in range(0, 4):
             doc.append(NoEscape('\large'))
             doc.append(NoEscape(r'\begin{center}'))
-            title=r'\textbf{' + g2Functions[j][0] + '- Solution ' + str(i+1) + '}'
+            title=r'\textbf{' + functions[j][0] + '- Solution ' + str(i+1) + '}'
             doc.append(NoEscape(title))
             doc.append(NewLine())
             doc.append(NoEscape(r'\end{center} \normalsize'))
             #doc.append(NoEscape(r'\normalsize'))
 
             for k in (s[j][i]):
-                doc.append(k)
+                doc.append(NoEscape(k))
                 doc.append(NewLine())
             doc.append(NewPage())
 
@@ -105,13 +104,13 @@ def genSolutions(doc, s):
 
 def title(doc):
 
-    doc.preamble.append(Command('title', 'Grade 2 Math Workbook'))
+    doc.preamble.append(Command('title', 'Grade 5 Math Workbook'))
     doc.preamble.append(Command('author', 'Akshai Srinivasan, Teja Koripella, Skye Tyrrell, Angellou Sutharsan'))
     doc.preamble.append(Command('date', ''))
     doc.append(NoEscape(r'\maketitle'))
     doc.append(NoEscape(r'\vfill'))
     doc.append(NoEscape(r'\begin{center}'))
-    doc.append("ISBN: 9798848756159")
+    doc.append("ISBN: 9798848825312")
     doc.append(NoEscape(r'\linebreak'))
     doc.append(NoEscape(r'\copyright'))
     doc.append('MathMaestro.org 2022')
@@ -120,6 +119,7 @@ def title(doc):
 
     return doc
 
+
 def tableOfContents(doc):
 
     with doc.create(Section('Table of Contents')):
@@ -127,41 +127,44 @@ def tableOfContents(doc):
         doc.append("Problems...........................................................................................Page 3")
         doc.append(NewLine())
         page=4
-        for i in range (0, len(g2Functions)):
-            doc.append(g2Functions[i][0])
-            numOfDots=round((58-(len(g2Functions[i][0])))*1.81034483)
+        for i in range (0, len(functions)):
+            doc.append(functions[i][0])
+            numOfDots=round((58-(len(functions[i][0])))*1.81034483)
             for j in range(0, numOfDots):
                 doc.append(".")
-            if (i==len(g2Functions)-1):
+            if (i==len(functions)-1):
 
-                doc.append("Page " + str(page) + "-" + str(page+((4*(3+g2Functions[i][2]))+1)))
+                doc.append("Page " + str(page) + "-" + str(page+((4*(3+functions[i][2]))+1)))
 
-                page += ((4*(3+g2Functions[i][2]))+1)
+                page += ((4*(3+functions[i][2]))+1)
             else:
-                doc.append("Page " + str(page) + "-" + str(page + ((4 * (3 + g2Functions[i][2]))-1)))
-                page += ((4 * (3 + g2Functions[i][2])))
+                doc.append("Page " + str(page) + "-" + str(page + ((4 * (3 + functions[i][2]))-1)))
+                page += ((4 * (3 + functions[i][2])))
             doc.append(NewLine())
         page += 1
         doc.append("Solutions......................................................................................Page " + str(page) )
         doc.append(NewLine())
         page+=1
-        for i in range (0, len(g2Functions)):
-            doc.append(g2Functions[i][0] + " Solutions")
-            numOfDots=round((58-(len(g2Functions[i][0] + " Solutions")))*1.81034483)
+        for i in range (0, len(functions)):
+            doc.append(functions[i][0] + " Solutions")
+            numOfDots=round((58-(len(functions[i][0] + " Solutions")))*1.81034483)
             for j in range(0, numOfDots):
                 doc.append(".")
-            doc.append("Page " + str(page) + "-" + str((page+((4 * (1 + g2Functions[i][2]))))-1))
-            page+=((4 * (1 + g2Functions[i][2])))
+            doc.append("Page " + str(page) + "-" + str((page+((4 * (1 + functions[i][2]))))-1))
+            page+=((4 * (1 + functions[i][2])))
             doc.append(NewLine())
         doc.append(NewPage())
 
-    return doc
 
-def genG2Book():
+
+    return doc
+def genBook():
     doc = Document()
 
     # Make title
     doc=title(doc)
+
+    # Make how to use page
 
     doc=tableOfContents(doc)
 
@@ -174,8 +177,8 @@ def genG2Book():
 
     # Generate .tex file
     try:
-        doc.generate_pdf('Grade2Workbook', clean_tex=False)
+        doc.generate_pdf('Grade5Workbook', clean_tex=False)
     except:
         print("error")
 
-#genG2Book()
+#genBook()
