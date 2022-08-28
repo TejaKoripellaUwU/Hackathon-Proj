@@ -112,7 +112,7 @@ select {
     opacity: 0.6;
     z-index: -1;
 }
-#mainTitle{
+.mainTitle{
     font-size: 15rem;
     height: 5rem;
     width: 50rem;
@@ -171,14 +171,7 @@ nav{
 #navbarNav{
     display: show;
 }
-a:link { text-decoration: none; }
-
-
-a:visited { text-decoration: none; }
-
-
-a:hover { text-decoration: none; }
-
-
-a:active { text-decoration: none; }
-
+a{
+  color:#463730;
+  text-decoration: none;
+}

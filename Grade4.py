@@ -1,13 +1,16 @@
-
 import random
 from fractions import Fraction
-import numpy
 import math
 #I NEVER WANT TO LOOK AT A FRACTION EVER AGAIN
 people=["James", "Sally", "Bob", "Sam", "Rachel", "Michael", "Laura", "Alex"]
 objects=["marbles", "pens", "books", "water bottles", "pieces of trash", "pencils", "dollars", "papers"]
 fractionObjects=["of a pizza", "of a pie", "of a cake", "liters of juice", "of a lasagna", "of a tree", "of a piece of wood"]
 actions=["slept", "swam", "hiked", "played video games", "read", "watched TV", "baked cookies", "sold potatoes"]
+functions=[['Rounding Numbers', 'roundingNums'], ['Dividing Numbers', 'dividingNums'],
+           ['Prime and Composite Numbers', 'primeComposite'], ['Comparing Fractions', 'compareFractions'],
+           ['Adding and Subtracting Fractions', 'addSubFrac'], ['Multiplying Fractions', 'multiplyFrac'],
+           ['Converting Decimals to Fractions', 'decToFrac'], ['Area', 'Area'], ['Converting Time', 'Time']]
+
 
 # DONE + DONE
 def roundingNums(amt):
@@ -258,7 +261,7 @@ def multiplyFrac(amt):
 
 #DONE
 def decToFrac(amt):
-    problems=[] 
+    problems=[]
     solutions=[]
     used=[]
     for i in range(1 ,amt + 1):
@@ -291,7 +294,7 @@ def Area(amt):
     for i in range(1 ,amt + 1):
         problemType = random.choice(["volume", "area", "perimeter"])
         if problemType == "volume":
-            shapeType = random.choice(["cube, rectangularPrism"])
+            shapeType = random.choice(["cube", "rectangularPrism"])
             if shapeType == "cube":
                 sideLength1 = random.randint(1,10)
                 problem=str('{0}). What is the volume of a cube with a side length of {1}?'.format(i, sideLength1))
@@ -303,7 +306,7 @@ def Area(amt):
                 problem=str('{0}). What is the volume of a rectangular prism with side lengths of {1}, {2}, and {3}?'.format(i, sideLength1, sideLength2, sideLength3))
                 solution=str('{0}). {1}'.format(i, sideLength1*sideLength2*sideLength3))
         elif problemType == "area":
-            shapeType = random.choice(["square, rectangle, triange"])
+            shapeType = random.choice(["square", "rectangle", "triangle"])
             if shapeType == "square":
                 sideLength1 = random.randint(1,10)
                 problem=str('{0}). What is the area of a square with a side length of {1}?'.format(i, sideLength1))
@@ -319,9 +322,9 @@ def Area(amt):
                 base = random.randint(1,10)
                 height = random.randint(1,10)
                 problem=str('{0}). What is the area of a triangle with a base of {1} and a height of {2}?'.format(i, base, height))
-                solution=str('{0}). {1}'.format(i, base*height/2))
+                solution=str('{0}). {1}'.format(i, int(base*height/2)))
         elif problemType == "perimeter":
-            shapeType = random.choice(["square, rectangle, triange"])
+            shapeType = random.choice(["square", "rectangle", "triangle"])
             if shapeType == "square":
                 sideLength1 = random.randint(1,10)
                 problem=str('{0}). What is the perimeter of a square with sidelength of {1}?'.format(i, sideLength1))
@@ -374,11 +377,3 @@ def Time(amt):
         problems.append(problem)
         solutions.append(solution)
     return problems,solutions
-
-def main():
-    problems, solutions = Time(30)
-    for i in problems:
-        print(i)
-    for i in solutions:
-        print(i)
-main()
