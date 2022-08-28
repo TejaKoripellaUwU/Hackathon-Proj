@@ -70,10 +70,10 @@ def Adding_Positve_Negative(num):
         num1 = random.randint(-100, 100)
         num2 = random.randint(-100, 100)
 
-        problem = str(i) + ") " + str(num) + " " + str(op1) + " " + str(num2)
+        problem = str(i) + ") " + str(num1) + " " + str(op1) + " " + str(num2)
         if (op1 == '+'):
             solution = num1 + num2
-        else: 
+        if (op1 == '-'):
             solution = num1 - num2
         used.append([num1, num2])
         problems.append(problem)
