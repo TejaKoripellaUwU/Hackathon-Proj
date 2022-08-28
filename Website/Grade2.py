@@ -2,7 +2,7 @@ import random
 
 people=["James", "Sally", "Bob", "Sam", "Rachel", "Michael", "Laura", "Alex"]
 objects=["marbles", "pens", "books", "water bottles", "pieces of trash", "pencils", "dollars", "papers"]
-functions=[['Adding Two Digit Numbers', 'addProbs'], ['Subtracting Two Digit Numbers', 'subProbs'],
+g2Functions=[['Adding Two Digit Numbers', 'addProbs'], ['Subtracting Two Digit Numbers', 'subProbs'],
            ['Counting Money', 'moneyProbs'], ['Standard Form', 'standardFormProbs'],
            ['Expanded Form', 'expandedFormProbs'], ['Comparing Two and Three Digit Numbers', 'comparingTwoAndThreeDigitNumsProbs'],
            ['Number Sequences', 'nextInSequenceProbs']]

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='Customize.css')}}">
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-1.4.2.js"></script>
+    </head>
+</head>
+<body>
+    <h1>Grade Level</h1>
+    <select name="GetWorkbook" class="cool-dropDown">
+        <option value="---" class="dropDown-element">Select a Grade</option>
+        <option value="Grade1Workbook.pdf" class="dropDown-element">First Grade</option>
+        <option value="Grade2Workbook.pdf" class="dropDown-element">Second Grade</option>
+        <option value="Grade4Workbook.pdf" class="dropDown-element">Fourth Grade</option>
+        <option value="Grade1Workbook.pdf" class="dropDown-element">Algebra 1</option>
+    </select>
+    <button id="getTopics">Get Topics</button>
+    <div id = "containerAdd"></div>
+    <button id="add">Add to List</button>
+    <div id = "containerRemove"></div>
+    <h1>Selected Topics</h1>
+    <button id = "remove">Remove Topics</button>
+    <button id = "Download">Download</button>
+    <input type="checkbox" name="jez" id="nose">
+    <label for="jez">yee</label>
+    <script src="{{ url_for('static', filename='Customize.js') }}"></script>
+</body>
+</html>

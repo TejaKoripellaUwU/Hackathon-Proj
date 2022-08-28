@@ -2,7 +2,7 @@ import random
 
 people=["James", "Sally", "Bob", "Sam", "Rachel", "Michael", "Laura", "Alex"]
 objects=["marbles", "pens", "books", "bottles", "toys", "pencils", "dollars", "papers"]
-functions=[['Comparing Two Digit Numbers', 'comparingTwoDigitNums'], ['Adding Numbers Within 20', 'addingNumsWithin20'],
+g1Functions=[['Comparing Two Digit Numbers', 'comparingTwoDigitNums'], ['Adding Numbers Within 20', 'addingNumsWithin20'],
            ['Subtracting Numbers Within 20', 'subtractingNumsWithin20'], ['Finding the Missing Number', 'missingNumber'],
            ['Adding Three Numbers', 'addingThreeNumbers'], ['Before and After', 'beforeAfter'],
            ['Basic Place Value', 'basicPlaceValue'], ['Breaking Apart Numbers', 'breakingApartNums']]

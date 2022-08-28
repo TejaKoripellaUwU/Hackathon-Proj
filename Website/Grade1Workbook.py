@@ -45,18 +45,18 @@ def solutionSection(doc):
 def genProblems(doc):
     s=[]
 
-    for j in range(0, len(functions)):
+    for j in range(0, len(g1Functions)):
         l=[]
         for i in range(1, 5):
             doc.append(NoEscape('\large'))
             doc.append(NoEscape(r'\begin{center}'))
-            title=r'\textbf{' + functions[j][0] + '- Worksheet ' + str(i) + '}'
+            title=r'\textbf{' + g1Functions[j][0] + '- Worksheet ' + str(i) + '}'
             doc.append(NoEscape(title))
             doc.append(NewLine())
             doc.append(NoEscape(r'\end{center} \normalsize'))
             #doc.append(NoEscape(r'\normalsize'))
 
-            f = getattr(Grade1, functions[j][1])
+            f = getattr(Grade1, g1Functions[j][1])
             problems, solutions=f(30)
             l2=[]
             for k in range(0, len(problems)):
@@ -82,7 +82,7 @@ def genSolutions(doc, s):
         for i in range(0, 4):
             doc.append(NoEscape('\large'))
             doc.append(NoEscape(r'\begin{center}'))
-            title=r'\textbf{' + functions[j][0] + '- Solution ' + str(i+1) + '}'
+            title=r'\textbf{' + g1Functions[j][0] + '- Solution ' + str(i+1) + '}'
             doc.append(NoEscape(title))
             doc.append(NewLine())
             doc.append(NoEscape(r'\end{center} \normalsize'))
@@ -102,6 +102,13 @@ def title(doc):
     doc.preamble.append(Command('author', 'Akshai Srinivasan, Teja Koripella, Skye Tyrrell, Angellou Sutharsan'))
     doc.preamble.append(Command('date', ''))
     doc.append(NoEscape(r'\maketitle'))
+    doc.append(NoEscape(r'\vfill'))
+    doc.append(NoEscape(r'\begin{center}'))
+    doc.append("ISBN: 9798848749724")
+    doc.append(NoEscape(r'\linebreak'))
+    doc.append(NoEscape(r'\copyright'))
+    doc.append('MathMaestro.org')
+    doc.append(NoEscape(r'\end{center}'))
     doc.append(NewPage())
 
     return doc
@@ -114,12 +121,12 @@ def tableOfContents(doc):
         doc.append("Problems...........................................................................................Page 3")
         doc.append(NewLine())
         page=4
-        for i in range (0, len(functions)):
-            doc.append(functions[i][0])
-            numOfDots=round((58-(len(functions[i][0])))*1.81034483)
+        for i in range (0, len(g1Functions)):
+            doc.append(g1Functions[i][0])
+            numOfDots=round((58-(len(g1Functions[i][0])))*1.81034483)
             for j in range(0, numOfDots):
                 doc.append(".")
-            if (i==len(functions)-1):
+            if (i==len(g1Functions)-1):
                 doc.append("Page " + str(page) + "-" + str(page+13))
                 page += 14
             else:
@@ -129,9 +136,9 @@ def tableOfContents(doc):
         doc.append("Solutions......................................................................................Page " + str(page) )
         doc.append(NewLine())
         page+=1
-        for i in range (0, len(functions)):
-            doc.append(functions[i][0] + " Solutions")
-            numOfDots=round((58-(len(functions[i][0] + " Solutions")))*1.81034483)
+        for i in range (0, len(g1Functions)):
+            doc.append(g1Functions[i][0] + " Solutions")
+            numOfDots=round((58-(len(g1Functions[i][0] + " Solutions")))*1.81034483)
             for j in range(0, numOfDots):
                 doc.append(".")
             doc.append("Page " + str(page) + "-" + str(page+3))
