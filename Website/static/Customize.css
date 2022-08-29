@@ -1,0 +1,32 @@
+nav{
+    position: top;
+    font-size: 30px;
+    background-color: rgba(118, 120, 237, 0.8);
+}
+#navbarNav{
+    display: show;
+}
+#containerAdd{
+    display: flexbox;
+    width: 400px;
+    background-color:dodgerblue;
+    height: 500px;
+    justify-items: left;
+    flex-direction: column;
+    font-size: larger;
+}
+input{
+    width: 10px;
+    align-self: right;
+    margin-left: 100px;
+    
+    display: block;
+}
+label{
+    display: block;
+}
+
+#add{
+    align-self: center;
+    transform: translateX(500px);
+}

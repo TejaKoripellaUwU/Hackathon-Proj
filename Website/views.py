@@ -6,6 +6,7 @@ from flask import request,url_for,redirect
 from Website.Grade1Workbook import *
 from Website.Grade2Workbook import *
 from Website.Grade4Workbook import *
+from Website.Grade9Workbook import *
 
 views = Blueprint('views', __name__)
 
@@ -44,12 +45,11 @@ def sendPDF():
         if pdf == "Grade1Workbook.pdf":
             genG1Book(g1Functions,"Grade 1 Math Workbook",'Grade1Workbook')
         elif pdf == "Grade2Workbook.pdf":
-            genG2Book(g2Functions, "Grade 2 Math Workbook")
+            genG2Book()
         elif pdf == "Grade4Workbook.pdf":
-            genG4Book(g4Functions, "Grade 2 Math Workbook")
+            genG4Book()
         elif pdf == "Grade9Workbook.pdf":
-            genG1Book(customBook,"Custom Math Workbook",'CustomBook')
-            return send_file(path+"CustomBook.pdf")
+            genA1Book()
     return send_file(path+pdf)
 
 @views.route('/', methods=["GET","POST"])

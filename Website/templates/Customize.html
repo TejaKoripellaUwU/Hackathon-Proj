@@ -14,13 +14,36 @@
     </head>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="{{url_for('static', filename='Logo.png')}}" alt="" width="90" height="90">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/DownloadSelect">Workbooks</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     <h1>Grade Level</h1>
     <select name="GetWorkbook" class="cool-dropDown">
         <option value="---" class="dropDown-element">Select a Grade</option>
         <option value="Grade1Workbook.pdf" class="dropDown-element">First Grade</option>
         <option value="Grade2Workbook.pdf" class="dropDown-element">Second Grade</option>
         <option value="Grade4Workbook.pdf" class="dropDown-element">Fourth Grade</option>
-        <option value="Grade1Workbook.pdf" class="dropDown-element">Algebra 1</option>
+        <option value="Grade9Workbook.pdf" class="dropDown-element">Algebra 1</option>
     </select>
     <button id="getTopics">Get Topics</button>
     <div id = "containerAdd"></div>
